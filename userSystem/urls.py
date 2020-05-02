@@ -20,5 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/', include('home.urls')),
     url(r'^$', views.firstPage, name='firstPage'),
-    url(r'^home/accounts/', include('authenticationSystem.urls'))
+    url(r'^accounts/', include('authenticationSystem.urls'))
 ]
