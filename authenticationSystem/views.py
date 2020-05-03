@@ -23,7 +23,7 @@ def register(request):
                 user = User.objects.create_user(username=username, email=email, password=pass1, first_name=first_name, last_name=last_name)
                 user.save()
                 print("User created ")
-                return render(request, 'authenticationSystem/login.html', {})
+                return HttpResponseRedirect(reverse('loginUser'))
         else:
             return render(request, 'authenticationSystem/register.html', {})
 
@@ -39,7 +39,7 @@ def loginUser(request):
         if user is not None:
             login(request,user)
             print("login successfull")
-            return render(request, 'authenticationSystem/login.html', {})
+            return HttpResponseRedirect(reverse('home'))
         else:
             print("check credentials")
             return render(request, 'authenticationSystem/login.html', {})
